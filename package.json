@@ -1,13 +1,22 @@
 {
 	"name": "light-switch",
 	"displayName": "Light Switch",
-	"description": "Light Switch allows you to set-up two themes that swap around day & night. All you have to do is pick your themes and set your preferred times.",
+	"description": "Light Switch allows you to set two themes that swap around day & night. All you have to do is pick your themes and set your preferred times.",
 	"version": "0.0.1",
+	"author": {
+		"name": "Juan Alejandro Morais",
+		"email": "timrodz@icloud.com",
+		"url": "http://timrodz.com"
+	},
 	"engines": {
 		"vscode": "^1.37.0"
 	},
 	"categories": [
 		"Other"
+	],
+	"keywords": [
+		"Ligth Switch",
+		"Theme Switch"
 	],
 	"activationEvents": [
 		"onCommand:extension.helloWorld"
@@ -18,6 +27,31 @@
 			{
 				"command": "extension.helloWorld",
 				"title": "Hello World"
+			},
+			{
+				"category": "Light Switch",
+				"command": "extension.switch",
+				"title": "Switch The Lights"
+			},
+			{
+				"category": "Light Switch",
+				"command": "extension.setModeDark",
+				"title": "Activate Dark Mode"
+			},
+			{
+				"category": "Light Switch",
+				"command": "extension.setModeLight",
+				"title": "Activate Light Mode"
+			},
+			{
+				"category": "Light Switch",
+				"command": "extension.setTimeModeLight",
+				"title": "Set Time: Dark Mode"
+			},
+			{
+				"category": "Light Switch",
+				"command": "extension.setTimeModeDark",
+				"title": "Set Time: Light Mode"
 			}
 		]
 	},
