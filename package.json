@@ -15,52 +15,72 @@
 		"Other"
 	],
 	"keywords": [
-		"Ligth Switch",
+		"Light Switch",
 		"Theme Switch"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"category": "Light Switch",
+				"command": "lightSwitch.toggleThemes",
+				"title": "Toggle themes"
 			},
 			{
 				"category": "Light Switch",
-				"command": "extension.switch",
-				"title": "Switch The Lights"
+				"command": "lightSwitch.setNightTheme",
+				"title": "Night Time"
 			},
 			{
 				"category": "Light Switch",
-				"command": "extension.setModeDark",
-				"title": "Activate Dark Mode"
-			},
-			{
-				"category": "Light Switch",
-				"command": "extension.setModeLight",
-				"title": "Activate Light Mode"
-			},
-			{
-				"category": "Light Switch",
-				"command": "extension.setTimeModeLight",
-				"title": "Set Time: Dark Mode"
-			},
-			{
-				"category": "Light Switch",
-				"command": "extension.setTimeModeDark",
-				"title": "Set Time: Light Mode"
+				"command": "lightSwitch.setDayTheme",
+				"title": "Day Time"
 			}
-		]
+		],
+		"configuration": {
+			"title": "Light Switch",
+			"type": "object",
+			"properties": {
+				"lightSwitch.defaultTheme": {
+					"type": "string",
+					"default": "Visual Studio Light",
+					"description": "Default theme in case that loading fails."
+				},
+				"lightSwitch.nightTheme": {
+					"type": "string",
+					"default": "Abyss",
+					"description": "Theme that will be set during dark mode."
+				},
+				"lightSwitch.dayTheme": {
+					"type": "string",
+					"default": "Visual Studio Light",
+					"description": "Theme that will be set during light mode."
+				},
+				"lightSwitch.nightTimeUTC": {
+					"type": "string",
+					"default": "20:00",
+					"description": "24-hour UTC time that activates night mode. Format: HH:mm (i.e. 20:00, 10:30, 03:45).",
+					"markdownDescription": "24-hour UTC time that activates night mode. Format: `HH:mm` (i.e. `20:00`, `10:30`, `03:45`)."
+				},
+				"lightSwitch.dayTimeUTC": {
+					"type": "string",
+					"default": "08:00",
+					"description": "Time to transfer over to day time, in format HH:mm (24 Hours)",
+					"markdownDescription": "UTC time to transfer over to day time, in format `HH:mm` (24 Hours)."
+				}
+			}
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile",
-		"test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
 	},
 	"devDependencies": {
 		"@types/glob": "^7.1.1",
