@@ -15,14 +15,21 @@ Light Switch allows you to set-up two themes that swap around day & night. All y
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+You set these configuration options as User Settings or as Workspace Settings, 
+either by using the Settings UI or by editing the JSON settings file directly.
 
-For example:
+### Theme Settings
+These options should be set with the name of the theme. 
+If you are not sure what is the name of your theme, 
+you can refer to them in your User Setting under `Workspace` -> `Appearance` -> `Color Theme`.
 
-This extension contributes the following settings:
+* `lightSwitch.defaultTheme`: Default theme in case loading fails. **Default**: `Visual Studio Light`
+* `lightSwitch.nightTheme`: Theme that will be set during dark mode. **Default**: `Abyss`
+* `lightSwitch.dayTheme`: Theme that will be set during light mode. **Default**: `Visual Studio Light`
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+### Other Settings
+
+* `lightSwitch.nightTime`: 24-hour local time that activates dark mode. Format: `hh:mm` (i.e. `20:00`, `10:30`, `03:45`).
 
 ## Known Issues
 
