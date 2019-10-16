@@ -1,24 +1,28 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
-import * as cmd from './command';
+import { ExtensionContext, window } from 'vscode';
+import { setInterval } from 'timers';
+import * as binder from './commands/binder';
+import { canSwitchToNightTheme } from './util/date';
+import setTheme from './commands/setTheme';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
-    console.log(
-        'Congratulations, your extension "light-switch" is now active!'
-    );
+export function activate(context: ExtensionContext) {
+  window.showInformationMessage('Light Switch is now active!');
 
-    vscode.window.showWarningMessage(
-        'Congratulations, your extension "light-switch" is now active!'
-    );
+  const cmdSwitchThemes = binder.registerCommandSwitch(context);
+  context.subscriptions.push(cmdSwitchThemes);
 
-    let cmdSwitch = cmd.registerCommandSwitch();
-    context.subscriptions.push(cmdSwitch);
-    
-    // let cmdSetTimeModeLight = cmd.registerCommandSetTimeModeLight();
-    // context.subscriptions.push(cmdSetTimeModeLight);
+  const cmdSetThemeNight = binder.registerCommandSetThemeNight(context);
+  context.subscriptions.push(cmdSetThemeNight);
+
+  const cmdSetThemeDay = binder.registerCommandSetThemeDay(context);
+  context.subscriptions.push(cmdSetThemeDay);
+
+  setInterval((): void => {
+    setTheme(context, canSwitchToNightTheme());
+  }, 60 * 10 * 1000);
 }
 
 // this method is called when your extension is deactivated

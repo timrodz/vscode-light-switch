@@ -59,17 +59,10 @@
 					"default": "Visual Studio Light",
 					"description": "Theme that will be set during light mode."
 				},
-				"lightSwitch.nightTimeUTC": {
+				"lightSwitch.nightTime": {
 					"type": "string",
-					"default": "20:00",
-					"description": "24-hour UTC time that activates night mode. Format: HH:mm (i.e. 20:00, 10:30, 03:45).",
-					"markdownDescription": "24-hour UTC time that activates night mode. Format: `HH:mm` (i.e. `20:00`, `10:30`, `03:45`)."
-				},
-				"lightSwitch.dayTimeUTC": {
-					"type": "string",
-					"default": "08:00",
-					"description": "Time to transfer over to day time, in format HH:mm (24 Hours)",
-					"markdownDescription": "UTC time to transfer over to day time, in format `HH:mm` (24 Hours)."
+					"description": "24-hour local time that activates night mode. Format: hh:mm (i.e. 20:00, 10:30, 03:45).",
+					"markdownDescription": "24-hour local time that activates night mode. Format: `hh:mm` (i.e. `20:00`, `10:30`, `03:45`)."
 				}
 			}
 		}
@@ -79,8 +72,8 @@
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile",
-    "test": "node ./out/test/runTest.js",
-    "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
+		"test": "node ./out/test/runTest.js",
+		"format": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
 	},
 	"devDependencies": {
 		"@types/glob": "^7.1.1",
@@ -92,5 +85,8 @@
 		"typescript": "^3.3.1",
 		"tslint": "^5.12.1",
 		"vscode-test": "^1.0.2"
+	},
+	"dependencies": {
+		"moment": "^2.24.0"
 	}
 }
