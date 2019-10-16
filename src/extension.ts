@@ -5,6 +5,7 @@ import { setInterval } from 'timers';
 import * as binder from './commands/binder';
 import { canSwitchToNightTheme } from './util/date';
 import setTheme from './commands/setTheme';
+import { interval } from './util/consts';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -22,7 +23,7 @@ export function activate(context: ExtensionContext) {
 
   setInterval((): void => {
     setTheme(context, canSwitchToNightTheme());
-  }, 60 * 10 * 1000);
+  }, interval);
 }
 
 // this method is called when your extension is deactivated
