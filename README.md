@@ -51,10 +51,4 @@ All code lives inside `src/`:
 
 ## Contributions
 
-Contributions are more than welcome 🕺
-
-- Bug reports
-- Enhancements
-- Typos
-- Tests
-- Anything you can think of 🎉
+[See our contribution guidelines](CONTRIBUTING.md)
