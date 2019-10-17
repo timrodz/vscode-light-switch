@@ -14,7 +14,7 @@ export function getUserConfig(): WorkspaceConfiguration {
 }
 
 export function getExtensionConfig(): WorkspaceConfiguration {
-  const config = workspace.getConfiguration('lightSwitch');
+  const config = workspace.getConfiguration(Constants.LIGHT_SWITCH);
   if (!config) {
     window.showErrorMessage("Could not load configuration 'lightSwitch'");
   }
@@ -22,7 +22,7 @@ export function getExtensionConfig(): WorkspaceConfiguration {
 }
 
 export function getWorkspaceTheme(context: ExtensionContext): boolean {
-  const themeDay = context.workspaceState.get('themeDay', true);
+  const themeDay = context.workspaceState.get(Constants.THEME_DAY, true);
   return themeDay;
 }
 
@@ -33,5 +33,5 @@ export function setWorkspaceTheme(
 ): void {
   const config = getUserConfig();
   config.update('colorTheme', theme, true);
-  context.workspaceState.update('themeDay', dayTheme);
+  context.workspaceState.update(Constants.THEME_DAY, dayTheme);
 }
