@@ -73,7 +73,7 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile",
     "test": "node ./out/test/runTest.js",
-    "format": "prettier --write \"src/**/*\""
+    "format": "prettier --write src/**/*"
   },
   "devDependencies": {
     "@types/glob": "^7.1.1",
