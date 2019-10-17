@@ -1,92 +1,100 @@
 {
-	"name": "light-switch",
-	"displayName": "Light Switch",
-	"description": "Light Switch allows you to set two themes that swap around day & night. All you have to do is pick your themes and set your preferred times.",
-	"version": "0.0.1",
-	"author": {
-		"name": "Juan Alejandro Morais",
-		"email": "timrodz@icloud.com",
-		"url": "http://timrodz.com"
-	},
-	"engines": {
-		"vscode": "^1.37.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"keywords": [
-		"Light Switch",
-		"Theme Switch"
-	],
-	"activationEvents": [
-		"*"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"category": "Light Switch",
-				"command": "lightSwitch.toggleThemes",
-				"title": "Toggle themes"
-			},
-			{
-				"category": "Light Switch",
-				"command": "lightSwitch.setNightTheme",
-				"title": "Night Time"
-			},
-			{
-				"category": "Light Switch",
-				"command": "lightSwitch.setDayTheme",
-				"title": "Day Time"
-			}
-		],
-		"configuration": {
-			"title": "Light Switch",
-			"type": "object",
-			"properties": {
-				"lightSwitch.defaultTheme": {
-					"type": "string",
-					"default": "Visual Studio Light",
-					"description": "Default theme in case that loading fails."
-				},
-				"lightSwitch.nightTheme": {
-					"type": "string",
-					"default": "Abyss",
-					"description": "Theme that will be set during dark mode."
-				},
-				"lightSwitch.dayTheme": {
-					"type": "string",
-					"default": "Visual Studio Light",
-					"description": "Theme that will be set during light mode."
-				},
-				"lightSwitch.nightTime": {
-					"type": "string",
-					"description": "24-hour local time that activates night mode. Format: hh:mm (i.e. 20:00, 10:30, 03:45).",
-					"markdownDescription": "24-hour local time that activates night mode. Format: `hh:mm` (i.e. `20:00`, `10:30`, `03:45`)."
-				}
-			}
-		}
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "npm run compile",
-		"test": "node ./out/test/runTest.js",
-		"format": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
-	},
-	"devDependencies": {
-		"@types/glob": "^7.1.1",
-		"@types/mocha": "^5.2.6",
-		"@types/node": "^10.12.21",
-		"@types/vscode": "^1.37.0",
-		"glob": "^7.1.4",
-		"mocha": "^6.1.4",
-		"typescript": "^3.3.1",
-		"tslint": "^5.12.1",
-		"vscode-test": "^1.0.2"
-	},
-	"dependencies": {
-		"moment": "^2.24.0"
-	}
+  "name": "light-switch",
+  "displayName": "Light Switch",
+  "description": "Light Switch allows you to set two themes that swap around day & night. All you have to do is pick your themes and set your preferred times.",
+  "version": "0.0.1",
+  "author": {
+    "name": "Juan Alejandro Morais",
+    "email": "timrodz@icloud.com",
+    "url": "http://timrodz.com"
+  },
+  "engines": {
+    "vscode": "^1.37.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "Light Switch",
+    "Theme Switch"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "category": "Light Switch",
+        "command": "lightSwitch.toggleThemes",
+        "title": "Toggle themes"
+      },
+      {
+        "category": "Light Switch",
+        "command": "lightSwitch.setNightTheme",
+        "title": "Night Time"
+      },
+      {
+        "category": "Light Switch",
+        "command": "lightSwitch.setDayTheme",
+        "title": "Day Time"
+      }
+    ],
+    "configuration": {
+      "title": "Light Switch",
+      "type": "object",
+      "properties": {
+        "lightSwitch.defaultTheme": {
+          "type": "string",
+          "default": "Visual Studio Light",
+          "description": "Default theme in case that loading fails."
+        },
+        "lightSwitch.nightTheme": {
+          "type": "string",
+          "default": "Abyss",
+          "description": "Theme that will be set during dark mode."
+        },
+        "lightSwitch.dayTheme": {
+          "type": "string",
+          "default": "Visual Studio Light",
+          "description": "Theme that will be set during light mode."
+        },
+        "lightSwitch.nightTime": {
+          "type": "string",
+          "description": "24-hour local time that activates night mode. Format: hh:mm (i.e. 20:00, 10:30, 03:45).",
+          "markdownDescription": "24-hour local time that activates night mode. Format: `hh:mm` (i.e. `20:00`, `10:30`, `03:45`)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "test": "node ./out/test/runTest.js",
+    "format": "prettier --write \"src/**/*\""
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^10.12.21",
+    "@types/vscode": "^1.37.0",
+    "glob": "^7.1.4",
+    "husky": "^3.0.9",
+    "mocha": "^6.1.4",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^2.0.0",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.1",
+    "vscode-test": "^1.0.2"
+  },
+  "dependencies": {
+    "moment": "^2.24.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
 }
