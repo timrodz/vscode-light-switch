@@ -5,7 +5,6 @@ import { setInterval } from 'timers';
 import * as binder from './commands/binder';
 import { canSwitchToNightTheme } from './util/date';
 import setTheme from './commands/setTheme';
-import { interval } from './util/consts';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -20,6 +19,8 @@ export function activate(context: ExtensionContext) {
 
   const cmdSetThemeDay = binder.registerCommandSetThemeDay(context);
   context.subscriptions.push(cmdSetThemeDay);
+
+  const interval = Constants.INTERVAL_MINUTES * Constants.INTERVAL_FORMULA;
 
   setInterval((): void => {
     setTheme(context, canSwitchToNightTheme());
