@@ -4,6 +4,7 @@ import {
   WorkspaceConfiguration,
   workspace
 } from 'vscode';
+import { Constants } from './constants';
 
 export function getUserConfig(): WorkspaceConfiguration {
   const config = workspace.getConfiguration('workbench');

@@ -5,6 +5,7 @@ import { setInterval } from 'timers';
 import * as binder from './commands/binder';
 import { canSwitchToNightTheme } from './util/date';
 import setTheme from './commands/setTheme';
+import { Constants } from './util/constants';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
