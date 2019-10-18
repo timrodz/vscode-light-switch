@@ -17,10 +17,20 @@ Light Switch allows you to set-up two themes that swap around day & night. All y
 
 This extension contributes the following settings:
 
-* `lightSwitch.defaultTheme`: Default theme in case that loading fails.
-* `lightSwitch.nightTheme`: Theme that will be set during dark mode.
-* `lightSwitch.dayTheme`: Theme that will be set during light mode.
-* `lightSwitch.nightTime`: 24-hour local time that activates night mode. Format: hh:mm (i.e. 20:00, 10:30, 03:45).
+- `lightSwitch.defaultTheme`: Default theme in case that loading fails.
+- `lightSwitch.nightTheme`: Theme that will be set during dark mode.
+- `lightSwitch.dayTheme`: Theme that will be set during light mode.
+- `lightSwitch.nightTime`: 24-hour local time that activates night mode. Format: hh:mm (i.e. 20:00, 10:30, 03:45).
+
+Example:
+
+![Seetings](images/settings.png)
+
+## Quick Actions
+
+Quickly change the theme (default: ctrl + shift + p)
+
+![Quick Actions](images/quick-actions.png)
 
 ## Known Issues
 
