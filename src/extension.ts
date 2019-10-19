@@ -26,6 +26,8 @@ export function activate(context: ExtensionContext) {
   setInterval((): void => {
     setTheme(context, canSwitchToNightTheme());
   }, interval);
+
+  context.subscriptions.push(binder.createLightSwitchStatusBarItem());
 }
 
 // this method is called when your extension is deactivated
