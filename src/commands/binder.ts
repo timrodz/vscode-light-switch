@@ -11,6 +11,7 @@ import {
 } from 'vscode';
 import switchThemes from './switch';
 import setTheme from './setTheme';
+import { Constants } from '../util/constants';
 
 function registerCommand(id: string, func: any): Disposable {
   const command = commands.registerCommand(`lightSwitch.${id}`, func);
@@ -18,7 +19,7 @@ function registerCommand(id: string, func: any): Disposable {
 }
 
 export function registerCommandSwitch(context: ExtensionContext): Disposable {
-  return registerCommand('toggleThemes', () => {
+  return registerCommand(Constants.TOGGLE_THEMES_COMMAND_ID, () => {
     switchThemes(context);
   });
 }
@@ -45,12 +46,12 @@ export function registerCommandSetThemeDay(
  * Note: The returned StatusBarItem still needs to be pushed into vscode's subscriptions
  */
 export function createLightSwitchStatusBarItem(): StatusBarItem {
-  const statusBarItem = window.createStatusBarItem(
+  const statusBarItem: StatusBarItem = window.createStatusBarItem(
     StatusBarAlignment.Left,
-    100 // The higher the number the farther left it is on the status bar
+    Constants.STATUS_BAR_PRIORITY
   );
 
-  statusBarItem.command = `lightSwitch.toggleThemess`;
+  statusBarItem.command = `${Constants.LIGHT_SWITCH}.${Constants.TOGGLE_THEMES_COMMAND_ID}`;
   statusBarItem.text = '$(light-bulb) Light Switch'; // $(light-bulb) renders a ligh-bulb icon on the status bar before the text
   statusBarItem.tooltip = 'Toggle Themes';
   statusBarItem.show();
