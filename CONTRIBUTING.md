@@ -4,18 +4,20 @@ Thank you for being interested in contributing to our project! Contributions are
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
-- [Code Structure](#code-structure)
-- [Ways to Contribute](#ways-to-contribute)
-  - [Bug Reports](#bug-reports)
-  - [Code Refactoring](#code-refactoring)
-  - [Enhancements](#enhancements)
-- [Testing Changes](#testing-changes)
-  - [Add a Test Script](#add-a-test-script)
+- [Contributing to VS Code Light Switch](#contributing-to-vs-code-light-switch)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+  - [Code Structure](#code-structure)
+  - [Ways to Contribute](#ways-to-contribute)
+    - [Bug Reports](#bug-reports)
+    - [Code Refactoring](#code-refactoring)
+    - [Enhancements](#enhancements)
+  - [Testing Changes](#testing-changes)
+    - [Add a Test Script](#add-a-test-script)
 
 ## Getting Started
 
-- Install dependencies ([moment.js](https://momentjs.com/)):
+- Install dependencies ([day.js](https://day.js.org/en/)):
 
 ```sh
 npm install moment --save
@@ -30,7 +32,7 @@ vscode-light_switch
     └───commands:     Every command goes here - includes the generic command binder
     └───test:         All test scripts are ran here.
     └───util:         General utilities
-        └───date:     Date conversion with moment.js
+        └───date:     Date conversion with day.js
         └───workspace Basic functions for getting important workspace information
 
 ```
@@ -74,7 +76,6 @@ suite('suiteName', () => {
     // Example: assert.equal(1, 2-1);
   });
 });
-
 ```
 
 2. Head to the debugging area and choose `Extension Tests` to [run the tests](https://code.visualstudio.com/api/working-with-extensions/testing-extension/debug.mp4).

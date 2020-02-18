@@ -11,7 +11,7 @@ Light Switch allows you to set-up two themes that swap around day & night. All y
 
 ## Requirements
 
-- [Moment.js](https://momentjs.com/): `npm install moment --save`
+- [Moment.js](https://momentjs.com/): `npm install dayjs --save`
 
 ## Extension Settings
 
@@ -20,7 +20,7 @@ This extension contributes the following settings:
 - `lightSwitch.defaultTheme`: Default theme in case that loading fails.
 - `lightSwitch.nightTheme`: Theme that will be set during dark mode.
 - `lightSwitch.dayTheme`: Theme that will be set during light mode.
-- `lightSwitch.nightTime`: 24-hour local time that activates night mode. Format: hh:mm (i.e. 20:00, 10:30, 03:45).
+- `lightSwitch.nightTime`: 24-hour local time that activates night mode. Format: HH:mm (i.e. 20:00, 10:30, 03:45).
 
 Example:
 
