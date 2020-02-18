@@ -20,7 +20,7 @@ Thank you for being interested in contributing to our project! Contributions are
 - Install dependencies ([day.js](https://day.js.org/en/)):
 
 ```sh
-npm install moment --save
+npm install dayjs --save
 ```
 
 ## Code Structure
