@@ -1,8 +1,5 @@
 trigger:
-  branches:
-    include: ['*']
-  tags:
-    include: ['*']
+- master
 
 strategy:
   matrix:
@@ -31,9 +28,11 @@ steps:
   - bash: |
       echo ">>> Compile vscode-test"
       yarn && yarn compile
-      echo ">>> Compiled vscode-test"
-      cd sample
-      echo ">>> Run sample integration test"
+      echo ">>> Compiled vscode-test. Showing directory contents"
+      ls
+      echo ">>> Showing working directory"
+      pwd
+      echo ">>> Run integration test"
       yarn && yarn compile && yarn test
     displayName: Run Tests
     env:
