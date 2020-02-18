@@ -10,7 +10,7 @@
     "url": "https://timrodz.com"
   },
   "engines": {
-    "vscode": "^1.37.0"
+    "vscode": "^1.32.0"
   },
   "categories": [
     "Other"
@@ -76,9 +76,7 @@
     "watch": "webpack --mode none --watch",
     "test": "node ./out/test/runTest.js",
     "test-compile": "tsc -p ./",
-    "format": "prettier --write src/**/*",
-    "pretest": "npm run compile",
-    "postinstall": "node ./node_modules/vscode/bin/install"
+    "format": "prettier --write src/**/*"
   },
   "devDependencies": {
     "@types/glob": "^7.1.1",
@@ -95,6 +93,7 @@
     "tslint": "^5.12.1",
     "typescript": "^3.3.1",
     "vsce": "^1.73.0",
+    "vscode": "^1.1.36",
     "vscode-test": "^1.0.2",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11"
