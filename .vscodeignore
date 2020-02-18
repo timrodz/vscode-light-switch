@@ -1,10 +1,21 @@
 .vscode/**
 .vscode-test/**
-out/test/**
-src/**
-.gitignore
-vsc-extension-quickstart.md
+src
+out
 **/tsconfig.json
 **/tslint.json
 **/*.map
 **/*.ts
+*.vsix
+
+# Specific files
+.gitignore
+webpack.config.js
+CONTRIBUTING.md
+package-lock.json
+.prettierrc
+node_modules
+
+# Special exclusions
+images
+!images/icon.png
