@@ -1,5 +1,5 @@
 trigger:
-- master
+  - master
 
 strategy:
   matrix:
@@ -27,13 +27,13 @@ steps:
 
   - bash: |
       echo ">>> Compile vscode-test"
-      yarn && yarn compile
+      yarn && yarn compile && yarn test-compile
       echo ">>> Compiled vscode-test. Showing directory contents"
       ls
       echo ">>> Showing working directory"
       pwd
       echo ">>> Run integration test"
-      yarn && yarn compile && yarn test
+      yarn && yarn compile && yarn test-compile && yarn test
     displayName: Run Tests
     env:
       DISPLAY: ':99.0'
