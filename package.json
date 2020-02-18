@@ -70,6 +70,7 @@
     }
   },
   "scripts": {
+    "deploy": "vsce publish --yarn",
     "vscode:prepublish": "webpack --mode production",
     "compile": "webpack --mode none",
     "watch": "webpack --mode none --watch",
@@ -93,6 +94,7 @@
     "ts-loader": "^6.2.1",
     "tslint": "^5.12.1",
     "typescript": "^3.3.1",
+    "vsce": "^1.73.0",
     "vscode-test": "^1.0.2",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11"
