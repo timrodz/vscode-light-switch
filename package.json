@@ -72,8 +72,8 @@
   "scripts": {
     "deploy": "vsce publish --yarn",
     "vscode:prepublish": "webpack --mode production",
-    "compile": "webpack --mode none && npm run test-compile",
-    "watch": "webpack --mode none --watch",
+    "compile": "webpack --mode production && npm run test-compile",
+    "watch": "webpack --mode development && tsc -watch -p ./",
     "test": "node ./out/test/runTest.js",
     "test-compile": "tsc -p ./",
     "format": "prettier --write src/**/*"
