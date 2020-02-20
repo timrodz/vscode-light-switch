@@ -10,8 +10,6 @@ import { Constants } from './util/constants';
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: ExtensionContext) {
-  window.showInformationMessage('Light Switch is now active!');
-
   const cmdSwitchThemes = binder.registerCommandSwitch(context);
   context.subscriptions.push(cmdSwitchThemes);
 
