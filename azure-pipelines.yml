@@ -1,17 +1,8 @@
 trigger:
   - master
 
-strategy:
-  matrix:
-    linux:
-      imageName: 'ubuntu-16.04'
-    mac:
-      imageName: 'macos-10.13'
-    windows:
-      imageName: 'vs2017-win2016'
-
 pool:
-  vmImage: $(imageName)
+  vmImage: ubuntu-16.04
 
 steps:
   - task: NodeTool@0
@@ -76,5 +67,5 @@ steps:
   - task: PublishPipelineArtifact@1
     displayName: Publish VSIX
     inputs:
-      artifact: git-mob-vs-code
+      artifact: git-light-switch-vscode
       targetPath: $(Build.ArtifactStagingDirectory)
