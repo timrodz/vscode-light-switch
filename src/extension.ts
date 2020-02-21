@@ -22,7 +22,7 @@ export function activate(context: ExtensionContext) {
   const interval = Constants.INTERVAL_MINUTES * Constants.INTERVAL_FORMULA;
 
   setInterval((): void => {
-    setTheme(context, canSwitchToNightTheme());
+    setTheme(context, !canSwitchToNightTheme());
   }, interval);
 
   context.subscriptions.push(binder.createLightSwitchStatusBarItem());
