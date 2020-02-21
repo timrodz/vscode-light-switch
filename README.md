@@ -2,6 +2,8 @@
 
 Light Switch allows you to set-up two themes that swap around day & night. All you have to do is pick your themes and set your preferred times.
 
+[![Build Status](https://dev.azure.com/timrodz/Light%20Switch/_apis/build/status/timrodz.vscode-light-switch?branchName=master)](https://dev.azure.com/timrodz/Light%20Switch/_build/latest?definitionId=1&branchName=master)
+
 ## Features
 
 - 🌗 Specify Day & Night themes
