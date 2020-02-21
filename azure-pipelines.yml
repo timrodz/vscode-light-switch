@@ -50,7 +50,7 @@ steps:
 
   # Acquire the `vsce` tool and use it to package
   - script: |
-      sudo yarn install -g vsce
+      sudo yarn global add vsce
       vsce package
     displayName: Create VSIX
 
