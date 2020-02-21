@@ -70,7 +70,7 @@
     }
   },
   "scripts": {
-    "deploy": "vsce publish patch --yarn",
+    "deploy": "vsce publish --yarn",
     "vscode:prepublish": "webpack --mode production",
     "compile": "webpack --mode production && npm run test-compile",
     "watch": "webpack --mode development && tsc -watch -p ./",
