@@ -27,40 +27,35 @@
     "commands": [
       {
         "category": "Light Switch",
-        "command": "lightSwitch.toggleThemes",
-        "title": "Toggle themes"
+        "command": "lightSwitch.swapThemes",
+        "title": "Swap themes"
       },
       {
         "category": "Light Switch",
-        "command": "lightSwitch.setNightTheme",
-        "title": "Night Time"
+        "command": "lightSwitch.setThemeDark",
+        "title": "Switch To: Dark"
       },
       {
         "category": "Light Switch",
-        "command": "lightSwitch.setDayTheme",
-        "title": "Day Time"
+        "command": "lightSwitch.setThemeLight",
+        "title": "Switch To: Light"
       }
     ],
     "configuration": {
       "title": "Light Switch",
       "type": "object",
       "properties": {
-        "lightSwitch.defaultTheme": {
+        "lightSwitch.themeDark": {
           "type": "string",
-          "default": "Visual Studio Light",
-          "description": "Default theme in case that loading fails."
-        },
-        "lightSwitch.nightTheme": {
-          "type": "string",
-          "default": "Abyss",
+          "default": "Default Dark+",
           "description": "Theme that will be set during dark mode."
         },
-        "lightSwitch.dayTheme": {
+        "lightSwitch.themeLight": {
           "type": "string",
           "default": "Visual Studio Light",
           "description": "Theme that will be set during light mode."
         },
-        "lightSwitch.nightTime": {
+        "lightSwitch.switchTime": {
           "type": "string",
           "default": "17:00",
           "description": "24-hour local time that activates night mode. Format: hh:mm (i.e. 20:00, 10:30, 03:45).",
@@ -68,6 +63,21 @@
         }
       }
     }
+  },
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "homepage": "https://github.com/timrodz/vscode-light_switch/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timrodz/vscode-light_switch.git"
+  },
+  "bugs": {
+    "url": "https://github.com/timrodz/vscode-light_switch/issues",
+    "email": "timrodz@icloud.com"
+  },
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#064b47",
+    "theme": "dark"
   },
   "scripts": {
     "deploy": "vsce publish --yarn",
@@ -102,20 +112,5 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
-  },
-  "license": "SEE LICENSE IN LICENSE.txt",
-  "homepage": "https://github.com/timrodz/vscode-light_switch/blob/master/README.md",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/timrodz/vscode-light_switch.git"
-  },
-  "bugs": {
-    "url": "https://github.com/timrodz/vscode-light_switch/issues",
-    "email": "timrodz@icloud.com"
-  },
-  "icon": "images/icon.png",
-  "galleryBanner": {
-    "color": "#064b47",
-    "theme": "dark"
   }
 }

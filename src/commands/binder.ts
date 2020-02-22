@@ -1,49 +1,87 @@
-// The command has been defined in the package.json file
-// Now provide the implementation of the command with registerCommand
-// The commandId parameter must match the command field in package.json
+// Commands have been defined inside `package.json`
+// The command identifiers must match the `command` field inside `package.json`
 import {
-  ExtensionContext,
-  Disposable,
   commands,
-  window,
+  Disposable,
   StatusBarAlignment,
-  StatusBarItem
+  StatusBarItem,
+  window
 } from 'vscode';
-import switchThemes from './switch';
-import setTheme from './setTheme';
 import { Constants } from '../util/constants';
+import setTheme from './setTheme';
+import switchTheme from './switchTheme';
+import { getExtensionConfig } from '../util/workspace';
+import { canSwitchToThemeDark } from '../util/date';
 
-function registerCommand(id: string, func: any): Disposable {
-  const command = commands.registerCommand(`lightSwitch.${id}`, func);
+/**
+ * Registers a given command
+ *
+ * @param {string} id Command identifier
+ * @param {*} func Function to run when executing the command
+ * @returns {Disposable}
+ */
+export function registerCommand(id: string, func: any): Disposable {
+  const command = commands.registerCommand(
+    `${Constants.ID_CMD_LIGHT_SWITCH}.${id}`,
+    func
+  );
   return command;
 }
 
-export function registerCommandSwitch(context: ExtensionContext): Disposable {
-  return registerCommand(Constants.TOGGLE_THEMES_COMMAND_ID, () => {
-    switchThemes(context);
+/**
+ * Registers the theme switch command
+ *
+ * @export
+ * @returns {Disposable}
+ */
+export function registerCommandSwitchThemes(): Disposable {
+  return registerCommand(Constants.ID_CMD_SWITCH_THEMES, () => {
+    switchTheme();
   });
 }
 
-export function registerCommandSetThemeNight(
-  context: ExtensionContext
-): Disposable {
-  return registerCommand('setNightTheme', () => {
-    setTheme(context, false);
+/**
+ * Registers the set theme DARK command
+ *
+ * @export
+ * @returns {Disposable}
+ */
+export function registerCommandSetThemeDark(): Disposable {
+  return registerCommand(Constants.ID_CMD_THEME_DARK, () => {
+    setTheme(Constants.ID_THEME_DARK);
   });
 }
 
-export function registerCommandSetThemeDay(
-  context: ExtensionContext
-): Disposable {
-  return registerCommand('setDayTheme', () => {
-    setTheme(context, true);
+/**
+ * Registers the set theme LIGHT command
+ *
+ * @export
+ * @returns {Disposable}
+ */
+export function registerCommandSetThemeLight(): Disposable {
+  return registerCommand(Constants.ID_CMD_THEME_LIGHT, () => {
+    setTheme(Constants.ID_THEME_LIGHT);
   });
+}
+
+export function intervalSwitchTheme(): boolean {
+  const extensionConfig = getExtensionConfig();
+  const switchTime: string = extensionConfig.get(
+    Constants.ID_SWITCH_TIME_DARK,
+    Constants.ID_TIME_DEFAULT_VALUE
+  );
+  const canSwitch = canSwitchToThemeDark(switchTime);
+  const theme = canSwitch ? Constants.ID_THEME_DARK : Constants.ID_THEME_LIGHT;
+  return setTheme(theme);
 }
 
 /**
  * Creates and returns the Light Switch Status Bar Item
  *
  * Note: The returned StatusBarItem still needs to be pushed into vscode's subscriptions
+ *
+ * @export
+ * @returns {StatusBarItem}
  */
 export function createLightSwitchStatusBarItem(): StatusBarItem {
   const statusBarItem: StatusBarItem = window.createStatusBarItem(
@@ -51,8 +89,10 @@ export function createLightSwitchStatusBarItem(): StatusBarItem {
     Constants.STATUS_BAR_PRIORITY
   );
 
-  statusBarItem.command = `${Constants.LIGHT_SWITCH}.${Constants.TOGGLE_THEMES_COMMAND_ID}`;
-  statusBarItem.text = '$(light-bulb) Light Switch'; // $(light-bulb) renders a ligh-bulb icon on the status bar before the text
+  statusBarItem.command = `${Constants.ID_CMD_LIGHT_SWITCH}.${Constants.ID_CMD_SWITCH_THEMES}`;
+
+  // $(light-bulb) renders a ligh-bulb icon on the status bar before the text
+  statusBarItem.text = '$(light-bulb) Light Switch';
   statusBarItem.tooltip = 'Toggle Themes';
   statusBarItem.show();
 
