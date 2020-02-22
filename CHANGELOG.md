@@ -4,6 +4,11 @@ All notable changes to the "light-switch" extension will be documented in this f
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.1.5]
+
+- REMOVED: Tests for `setTheme`.
+- FIXED: Tests that broke the pipeline.
+
 ## [0.1.4]
 
 - ADDED: Tests for `setTheme`, `switchTheme`, `workspace`.
