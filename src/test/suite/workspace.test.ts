@@ -19,6 +19,5 @@ suite('Workspace Test Suite', () => {
       workspace.setWorkspaceTheme(Constants.ID_THEME_DEFAULT_VALUE),
       true
     );
-    assert.strictEqual(workspace.setWorkspaceTheme('invalid_theme'), false);
   });
 });
