@@ -1,6 +1,6 @@
 {
   "name": "lightswitch",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "displayName": "Light Switch",
   "description": "Light Switch allows you to set two themes that swap around day & night. All you have to do is pick your themes and set your preferred times.",
   "publisher": "timrodz",
