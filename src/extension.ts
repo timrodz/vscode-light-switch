@@ -26,9 +26,7 @@ export function activate(context: ExtensionContext) {
   const interval =
     Constants.INTERVAL_MINUTES * Constants.MINUTE_IN_MILLISECONDS;
 
-  setInterval((): void => {
-    binder.intervalSwitchTheme();
-  }, interval);
+  setInterval(binder.intervalSwitchTheme, interval);
 }
 
 // this method is called when your extension is deactivated

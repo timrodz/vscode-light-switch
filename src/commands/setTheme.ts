@@ -16,9 +16,6 @@ export default function setTheme(themeId: string): boolean {
   );
 
   if (currentTheme === theme) {
-    console.log(
-      `Will not swap: Source and Destination theme are equal: ${theme}`
-    );
     return false;
   }
 
