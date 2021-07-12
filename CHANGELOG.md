@@ -4,6 +4,12 @@ All notable changes to the "light-switch" extension will be documented in this f
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.2.0]
+
+- Improved the logic and now allows for proper checking between light and dark hours
+- Added more unit tests to verify theme switching behaviour
+- Updated general documentation to improve consistency of the project's codebase.
+
 ## [0.1.5]
 
 - REMOVED: Tests for `setTheme`.

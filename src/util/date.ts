@@ -12,21 +12,36 @@ function createDateFromString(date: string, time: string): dayjs.Dayjs {
 }
 
 /**
- * Determines if we can switch to the dark theme
+ * Determines the theme to switch to
  *
  * @export
- * @param {string} [switchTime='17:00']
+ * @param {string} [switchTimeLight='08:00']
+ * @param {string} [switchTimeDark='17:00']
  * @param {string} [currentTime='']
- * @returns {boolean} whether the current time is either the same or after our specified switching time
+ * @returns {string} whether the theme is 'dark' or 'light'
  */
-export function canSwitchToThemeDark(
-  switchTime: string,
+export function themeToSwitchTo(
+  switchTimeLight: string,
+  switchTimeDark: string,
   currentTime: string = ''
-): boolean {
-  const yearMonthDateString = dayjs().format('YYYY-MM-DD');
-  const timeNow = currentTime
-    ? createDateFromString(yearMonthDateString, currentTime)
-    : dayjs();
-  const timeToSwitch = createDateFromString(yearMonthDateString, switchTime);
-  return timeNow.isSame(timeToSwitch) || timeNow.isAfter(timeToSwitch);
+): 'dark' | 'light' {
+  const today = dayjs().format('YYYY-MM-DD');
+  const timeNow = createDateFromString(
+    today,
+    currentTime ? currentTime : dayjs().format('HH:mm')
+  );
+  const timeToSwitchLight = createDateFromString(today, switchTimeLight);
+  const timeToSwitchDark = createDateFromString(today, switchTimeDark);
+
+  const timeNowH = timeNow.hour();
+
+  const shouldSwitchToThemeLight =
+    // Either we're past the light hour and earlier than the dark hour...
+    (timeNowH >= timeToSwitchLight.hour() &&
+      timeNowH < timeToSwitchDark.hour()) ||
+    // ...Or the hour is the same but we haven't reached the dark minutes
+    (timeNowH == timeToSwitchDark.hour() &&
+      timeNow.minute() < timeToSwitchDark.minute());
+
+  return shouldSwitchToThemeLight ? 'light' : 'dark';
 }

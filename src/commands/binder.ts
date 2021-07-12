@@ -11,7 +11,7 @@ import { Constants } from '../util/constants';
 import setTheme from './setTheme';
 import switchTheme from './switchTheme';
 import { getExtensionConfig } from '../util/workspace';
-import { canSwitchToThemeDark } from '../util/date';
+import { themeToSwitchTo } from '../util/date';
 
 /**
  * Registers a given command
@@ -66,13 +66,18 @@ export function registerCommandSetThemeLight(): Disposable {
 
 export function intervalSwitchTheme(): boolean {
   const extensionConfig = getExtensionConfig();
-  const switchTime: string = extensionConfig.get(
+  const switchTimeLight: string = extensionConfig.get(
+    Constants.ID_SWITCH_TIME_LIGHT,
+    Constants.ID_TIME_DEFAULT_VALUE
+  );
+  const switchTimeDark: string = extensionConfig.get(
     Constants.ID_SWITCH_TIME_DARK,
     Constants.ID_TIME_DEFAULT_VALUE
   );
-  const canSwitch = canSwitchToThemeDark(switchTime);
-  const theme = canSwitch ? Constants.ID_THEME_DARK : Constants.ID_THEME_LIGHT;
-  return setTheme(theme);
+  const newTheme = themeToSwitchTo(switchTimeLight, switchTimeDark);
+  return setTheme(
+    newTheme === 'dark' ? Constants.ID_THEME_DARK : Constants.ID_THEME_LIGHT
+  );
 }
 
 /**

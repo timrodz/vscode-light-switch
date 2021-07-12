@@ -7,7 +7,7 @@
   "author": {
     "name": "Juan Alejandro Morais",
     "email": "timrodz@icloud.com",
-    "url": "https://timrodz.com"
+    "url": "https://timrodz.dev/"
   },
   "engines": {
     "vscode": "^1.43.0"
@@ -55,9 +55,15 @@
           "default": "Visual Studio Light",
           "description": "Theme that will be set during light mode."
         },
-        "lightSwitch.switchTime": {
+        "lightSwitch.switchTimeDark": {
           "type": "string",
           "default": "17:00",
+          "description": "24-hour local time that activates night mode. Format: hh:mm (i.e. 20:00, 10:30, 03:45).",
+          "markdownDescription": "24-hour local time that activates night mode. Format: `hh:mm` (i.e. `20:00`, `10:30`, `03:45`)."
+        },
+        "lightSwitch.switchTimeLight": {
+          "type": "string",
+          "default": "08:00",
           "description": "24-hour local time that activates night mode. Format: hh:mm (i.e. 20:00, 10:30, 03:45).",
           "markdownDescription": "24-hour local time that activates night mode. Format: `hh:mm` (i.e. `20:00`, `10:30`, `03:45`)."
         }
@@ -82,7 +88,7 @@
   "scripts": {
     "deploy": "vsce publish --yarn",
     "vscode:prepublish": "webpack --mode production",
-    "compile": "webpack --mode production && npm run test-compile",
+    "compile": "webpack --mode production && tsc -p ./",
     "watch": "webpack --mode development && tsc -watch -p ./",
     "test": "node ./out/test/runTest.js",
     "test-compile": "tsc -p ./",
