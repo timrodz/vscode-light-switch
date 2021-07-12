@@ -6,23 +6,23 @@ Light Switch allows you to set-up two themes that swap around day & night. All y
 
 ## Features
 
-- 🌗 Specify Day & Night themes
-- ⏱ Set your desired night time
+- 🌗 Specify themes for light and dark settings
+- ⏱ Set your desired time to switch between these
 
 ![Light Switch in action](images/light-switch.gif)
 
 ## Requirements
 
-- [Day.js](https://day.js.org/): `npm install dayjs --save`
+- [vscode](https://code.visualstudio.com/)
+- [Day.js](https://day.js.org/)
 
 ## Extension Settings
 
 This extension contributes the following settings:
 
-- `lightSwitch.defaultTheme`: Default theme in case that loading fails.
-- `lightSwitch.nightTheme`: Theme that will be set during dark mode.
-- `lightSwitch.dayTheme`: Theme that will be set during light mode.
-- `lightSwitch.nightTime`: 24-hour local time that activates night mode. Format: HH:mm (i.e. 20:00, 10:30, 03:45).
+- `lightSwitch.themeDark`: Theme that will be set during dark mode.
+- `lightSwitch.themeLight`: Theme that will be set during light mode.
+- `lightSwitch.switchTimeDark` + `lightSwitch.switchTimeLight`: 24-hour local time that activates night mode. Format: HH:mm (i.e. 20:00, 10:30, 03:45).
 
 Example:
 
@@ -50,8 +50,10 @@ All code lives inside `src/`:
   - `date`: Date conversion with `day.js`.
   - `workspace`: Basic functions for getting important workspace information.
 
-1. Run `npm install`
-2. Head to the debugging area and choose either `Run Extension` or `Extension Tests` if you want to run the tests.
+### Getting started
+
+1. Run `yarn` to install local dependencies.
+2. Head to the debugging menu and choose either `Run Extension` or `Extension Tests` if you want to run the tests.
 
 ### Installing local builds
 

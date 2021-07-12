@@ -20,6 +20,6 @@ export default function switchTheme(): boolean {
       ? Constants.ID_THEME_LIGHT
       : Constants.ID_THEME_DARK;
 
-  console.log(`Switching themes. Source: ${currentTheme}, Final: ${themeId}`);
+  console.log(`Switching themes. Current: ${currentTheme}. New: ${themeId}`);
   return setTheme(themeId);
 }

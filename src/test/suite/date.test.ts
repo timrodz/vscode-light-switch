@@ -1,6 +1,6 @@
 import * as assert from 'assert';
 import * as dayjs from 'dayjs';
-import { canSwitchToThemeDark } from '../../util/date';
+import { themeToSwitchTo } from '../../util/date';
 
 suite('Date Test Suite', () => {
   test('Time conversions', () => {
@@ -24,11 +24,21 @@ suite('Date Test Suite', () => {
   });
 
   test('Setting time through the extension', () => {
-    assert.strictEqual(canSwitchToThemeDark('17:00', '16:00'), false);
-    assert.strictEqual(canSwitchToThemeDark('17:00', '17:00'), true);
-    assert.strictEqual(canSwitchToThemeDark('17:00', '17:01'), true);
-    assert.strictEqual(canSwitchToThemeDark('17:00', '00:00'), false);
-    assert.strictEqual(canSwitchToThemeDark('17:00', '24:00'), true);
-    assert.strictEqual(canSwitchToThemeDark('17:00', '23:59'), true);
+    // standard setup
+    assert.strictEqual(themeToSwitchTo('08:00', '17:00', '08:00'), 'light');
+    assert.strictEqual(themeToSwitchTo('08:00', '17:00', '08:01'), 'light');
+    assert.strictEqual(themeToSwitchTo('08:00', '17:00', '16:59'), 'light');
+    assert.strictEqual(themeToSwitchTo('08:00', '17:00', '17:00'), 'dark');
+    assert.strictEqual(themeToSwitchTo('08:00', '17:00', '17:01'), 'dark');
+    assert.strictEqual(themeToSwitchTo('08:00', '17:00', '23:59'), 'dark');
+    assert.strictEqual(themeToSwitchTo('08:00', '17:00', '00:00'), 'dark');
+    assert.strictEqual(themeToSwitchTo('08:00', '17:00', '07:59'), 'dark');
+
+    // same hour, different minutes
+    assert.strictEqual(themeToSwitchTo('08:00', '08:30', '08:00'), 'light');
+    assert.strictEqual(themeToSwitchTo('08:00', '08:30', '08:01'), 'light');
+    assert.strictEqual(themeToSwitchTo('08:00', '08:30', '08:29'), 'light');
+    assert.strictEqual(themeToSwitchTo('08:00', '08:30', '08:30'), 'dark');
+    assert.strictEqual(themeToSwitchTo('08:00', '08:30', '08:31'), 'dark');
   });
 });

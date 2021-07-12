@@ -12,7 +12,8 @@ export const Constants = Object.freeze({
   // Property identifiers
   ID_THEME_LIGHT: 'themeLight',
   ID_THEME_DARK: 'themeDark',
-  ID_SWITCH_TIME_DARK: 'switchTime',
+  ID_SWITCH_TIME_DARK: 'switchTimeDark',
+  ID_SWITCH_TIME_LIGHT: 'switchTimeLight',
 
   // Default property values
   ID_THEME_DEFAULT_VALUE: 'Default Dark+',
