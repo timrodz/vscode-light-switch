@@ -1,3 +1,4 @@
+# Variables: https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables-devops-services
 trigger:
   branches:
     include: ['*']
@@ -15,7 +16,7 @@ pool:
 steps:
   - task: NodeTool@0
     inputs:
-      versionSpec: '8.x'
+      versionSpec: '10.x'
     displayName: 'Install Node.js'
 
   - bash: |
@@ -40,6 +41,6 @@ steps:
       echo ">>> Publish"
       yarn deploy
     displayName: Publish
-    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['Agent.OS'], 'Linux'))
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Agent.OS'], 'Linux'))
     env:
       VSCE_PAT: $(VSCE_PAT)
