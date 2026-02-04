@@ -32,7 +32,7 @@ steps:
       pwd
       ls
       echo ">>> Run integration test"
-      npm install && npm run compile && npm run test
+      npm install && npm run compile && npm run test-ci
     displayName: Run Tests
     env:
       DISPLAY: ':99.0'
