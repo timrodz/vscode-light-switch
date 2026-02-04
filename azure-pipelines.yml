@@ -27,12 +27,12 @@ steps:
 
   - bash: |
       echo ">>> Compile vscode-test"
-      npm && npm compile
+      npm && npm run compile
       echo ">>> Compiled vscode-test. Showing directory contents"
       pwd
       ls
       echo ">>> Run integration test"
-      npm && npm compile && npm test
+      npm && npm run compile && npm run test
     displayName: Run Tests
     env:
       DISPLAY: ':99.0'
