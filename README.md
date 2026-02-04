@@ -2,6 +2,22 @@
 
 Light Switch allows you to set-up two themes that swap around day & night. All you have to do is pick your themes and set your preferred times.
 
+## Update 2026-02-05
+
+Light Switch has now been **deprecated** as you can configure this inside VS Code.
+
+Source: [Visual Studio Code documentation](https://code.visualstudio.com/docs/configure/themes#_automatically-switch-based-on-os-color-scheme)
+
+Example:
+
+```json
+{
+  “window.autoDetectColorScheme”: true,
+  “workbench.preferredDarkColorTheme”: “Visual Studio Dark”,
+  “workbench.preferredLightColorTheme”: “Visual Studio Light”
+}
+```
+
 [![Build Status](https://dev.azure.com/timrodz/Light%20Switch/_apis/build/status/timrodz.vscode-light-switch?branchName=master)](https://dev.azure.com/timrodz/Light%20Switch/_build/latest?definitionId=1&branchName=master)
 
 ## Features
