@@ -52,7 +52,7 @@ All code lives inside `src/`:
 
 ### Getting started
 
-1. Run `yarn` to install local dependencies.
+1. Run `npm install` to install local dependencies.
 2. Head to the debugging menu and choose either `Run Extension` or `Extension Tests` if you want to run the tests.
 
 ### Installing local builds

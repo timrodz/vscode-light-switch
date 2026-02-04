@@ -86,11 +86,11 @@
     "theme": "dark"
   },
   "scripts": {
-    "deploy": "vsce publish --yarn",
+    "deploy": "vsce publish --npm",
     "vscode:prepublish": "webpack --mode production",
     "compile": "webpack --mode production && tsc -p ./",
     "watch": "webpack --mode development && tsc -watch -p ./",
-    "test": "node ./out/test/runTest.js",
+    "test": "node ./out/est/runTest.js",
     "test-compile": "tsc -p ./",
     "format": "prettier --write src/**/*"
   },
